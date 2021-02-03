@@ -1,0 +1,40 @@
+[package]
+name = "bb8_redis_async_bug"
+version = "0.1.0"
+authors = ["Aleksandrov Vladimir <invis87@gmail.com>"]
+edition = "2018"
+build = "build.rs"
+
+[lib]
+name = "bb8_redis_async_bug"
+path = "src/lib.rs"
+
+[[bin]]
+name = "pool_server"
+path = "src/pool_server.rs"
+
+[[bin]]
+name = "client_ok"
+path = "src/client_ok.rs"
+
+[[bin]]
+name = "client_stuck"
+path = "src/client_stuck.rs"
+
+[dependencies]
+dotenv = "0.15.0"
+futures = "0.3.12"
+bb8 = "0.7.0"
+redis = { version = "0.19.0", features = ["tokio-comp"] }
+bb8-redis = { version = "0.8.0" }
+tokio = { version = "1.1.1", features = ["full"] }
+triggered = "0.1.1"
+tokio-util = "0.6.3"
+tonic = "0.4"
+prost = "0.7"
+log = "0.4.11"
+env_logger = "0.8.1"
+anyhow = "1.0.32"
+
+[build-dependencies]
+tonic-build = "0.4"

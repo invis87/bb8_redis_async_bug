@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package v1;
+
+service SomeService {
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Set(SetRequest) returns (SetResponse);
+}
+
+message GetRequest {
+  uint64 id = 1;
+}
+
+message GetResponse {
+  uint64 id = 1;
+  uint64 status = 2;
+}
+
+message SetRequest {
+  uint64 id = 1;
+  uint64 status = 2;
+}
+
+message SetResponse {} 
